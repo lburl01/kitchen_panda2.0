@@ -6,11 +6,8 @@ require_relative 'app/models/user'
 require 'json'
 require "sinatra/cross_origin"
 
-database_config = YAML::load(File.open('config/database.yml'))
-
 before do
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-  content_type :json
 end
 
 after do
@@ -25,4 +22,8 @@ end
 
 options '/*' do
   response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
+end
+
+get '/' do
+  erb :index
 end
