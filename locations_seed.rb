@@ -1,4 +1,4 @@
-require_relative 'app/models/item'
+require_relative 'app/models/location'
 require_relative 'db/migrate/002_create_locations'
 
 def main

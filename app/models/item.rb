@@ -9,13 +9,13 @@ class Item < ActiveRecord::Base
   before_save :downcase_input
 
   def downcase_input
-    self.item_name.downcase!
+    self.name.downcase!
   end
 
   after_initialize :defaults, unless: :persisted?
 
   def defaults
-    self.deleted ||= false
+    self.is_deleted ||= false
     self.quantity ||= 1
   end
 end
