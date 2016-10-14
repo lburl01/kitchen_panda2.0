@@ -1,10 +1,11 @@
 require 'rack/test'
 require 'rspec'
 require 'sinatra'
+require 'active_record'
 
 ENV['RACK_ENV'] = 'test'
 
-require File.expand_path '../app.rb', __FILE__
+require File.expand_path '../models/user_spec', __FILE__
 
 #
 module RSpecMixin
