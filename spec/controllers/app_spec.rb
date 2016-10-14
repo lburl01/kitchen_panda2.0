@@ -49,10 +49,10 @@ describe "App" do
   describe "user's homepage: GET /users/home" do
 
     it "responds with a 200 status code" do
-      @user = User.create(:name => "Milo", :password => "luminosity")
+      @user = User.create(:name => "Milo", :password => "lovesjazz")
       visit 'sessions/login'
       fill_in(:name, :with => "Milo")
-      fill_in(:password, :with => "luminosity")
+      fill_in(:password, :with => "lovesjazz")
       click_button "Log In"
       visit '/users/home'
       expect(page.status_code).to eq(200)

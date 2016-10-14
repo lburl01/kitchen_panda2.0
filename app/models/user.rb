@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :locations, through: :items
 
+  def new
+    @user = User.new
+  end
+
 end

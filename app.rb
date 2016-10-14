@@ -32,13 +32,24 @@ get '/' do
 end
 
 get '/registrations/signup' do
-  erb :'registrations/signup'
+  slim :'registrations/signup'
 end
 
 get '/sessions/login' do
-  erb :'registrations/signup'
+  slim :'registrations/signup'
 end
 
 get '/users/home' do
-  erb :'users/home'
+  @user = User.find(session[:id])
+  erb :'/users/home'
+end
+
+post '/registrations' do
+  @user = User.new(name: params[:name], password: params[:password])
+  @user.save if @user.valid?
+  status 201
+  session[:id] = @user.id
+  redirect '/users/home'
+  content_type :json
+  return @user.to_json
 end
