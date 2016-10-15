@@ -51,17 +51,17 @@ get '/users/home' do
 end
 
 get '/users/pantry' do
-  @user = User.find(session[:id])
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 3).all
   slim :'/users/pantry'
 end
 
 get '/users/freezer' do
-  @items = Item.select(:name, :quantity, :location_id, :user_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).all
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 1).all
   slim :'/users/freezer'
 end
 
 get '/users/fridge' do
-  @user = User.find(session[:id])
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 2).all
   slim :'/users/fridge'
 end
 
