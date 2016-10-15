@@ -2,5 +2,13 @@ doctype html
 html
   head
     title KitchenPanda
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet"
+    link rel="stylesheet" href="main.css" media="screen" title="no title"
   body
-    == yield
+    div.container
+      div.header
+        h2
+          span class="glyphicon glyphicon-apple" aria-hidden="true"
+          GLYPH  KitchenPanda
+      == yield

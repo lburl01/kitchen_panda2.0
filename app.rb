@@ -11,10 +11,6 @@ before do
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 end
 
-# after do
-#   ActiveRecord::Base.connection.close
-# end
-
 register Sinatra::CrossOrigin
 
 set :views, Proc.new { File.open("app/views/") }
