@@ -11,9 +11,9 @@ before do
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 end
 
-after do
-  ActiveRecord::Base.connection.close
-end
+# after do
+#   ActiveRecord::Base.connection.close
+# end
 
 register Sinatra::CrossOrigin
 
@@ -65,4 +65,8 @@ post '/sessions' do
   redirect '/users/home'
   content_type :json
   return @user.to_json
+  # else
+  #   puts "Invalid username/password."
+  #   redirect '/sessions/login'
+  # end
 end
