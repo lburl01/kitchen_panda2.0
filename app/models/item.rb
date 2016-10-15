@@ -18,4 +18,8 @@ class Item < ActiveRecord::Base
     self.is_deleted ||= false
     self.quantity ||= 1
   end
+
+  def new
+    @item = Item.new
+  end
 end

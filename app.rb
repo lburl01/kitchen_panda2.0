@@ -56,7 +56,7 @@ get '/users/pantry' do
 end
 
 get '/users/freezer' do
-  @user = User.find(session[:id])
+  @items = Item.select(:name, :quantity, :location_id, :user_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).all
   slim :'/users/freezer'
 end
 
