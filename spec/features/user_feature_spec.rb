@@ -1,6 +1,4 @@
 require 'spec_helper'
-# require_relative '../../app/models/user'
-# require_relative '../../app'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
@@ -42,26 +40,26 @@ RSpec.feature "User sign up, log in, sign out", :type => :feature do
       expect(page).to have_content("Welcome, #{valid_user.name}!")
     end
 
-    # it 'fails to log in with an incorrect password' do
-    #   expect(current_path).to eq('/sessions/login')
-    #   fill_in("name", :with => valid_user.name)
-    #   fill_in("password", :with => "wrong")
-    #   click_button('Log In')
-    #   expect(current_path).to eq('/sessions')
-    #   expect(page).to have_content("undefined method `id' for nil:NilClass")
-    # end
+    it 'fails to log in with an incorrect password' do
+      expect(current_path).to eq('/sessions/login')
+      fill_in("name", :with => valid_user.name)
+      fill_in("password", :with => "wrong")
+      click_button('Log In')
+      expect(current_path).to eq('/sessions')
+      expect(page).to have_content("undefined method `id' for nil:NilClass")
+    end
   end
-  #
-  # describe "user log out", :type => :feature do
-  #   it 'successfully logs out and redirects to the homepage' do
-  #     get '/'
-  #     click_link 'Log In'
-  #     fill_in("name", :with => valid_user.name)
-  #     fill_in("password", :with => valid_user.password)
-  #     click_button('Log In')
-  #     click_link('Log Out')
-  #     expect(current_path).to eq('/')
-  #     expect(page).to have_content('Log In')
-  #   end
-  # end
+
+  describe "user log out", :type => :feature do
+    it 'successfully logs out and redirects to the homepage' do
+      visit '/'
+      click_link 'Log In'
+      fill_in("name", :with => valid_user.name)
+      fill_in("password", :with => valid_user.password)
+      click_button('Log In')
+      click_link('Log Out')
+      expect(current_path).to eq('/')
+      expect(page).to have_content('Log In')
+    end
+  end
 end

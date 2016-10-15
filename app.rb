@@ -46,6 +46,7 @@ end
 
 get '/sessions/logout' do
   session.clear
+  redirect '/'
 end
 
 get '/users/home' do
@@ -69,8 +70,4 @@ post '/sessions' do
   redirect '/users/home'
   content_type :json
   return @user.to_json
-  # else
-  #   puts "Invalid username/password."
-  #   redirect '/sessions/login'
-  # end
 end

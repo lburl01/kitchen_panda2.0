@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../../app/models/user'
 require_relative '../../app'
 
-# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 RSpec.describe User, type: :model do
   context "validations" do
