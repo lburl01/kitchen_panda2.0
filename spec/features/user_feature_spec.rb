@@ -1,4 +1,6 @@
 require 'spec_helper'
+require_relative '../../app/models/user'
+require_relative '../../app'
 
 describe "User sign up, log in, sign out" do
 
@@ -8,7 +10,7 @@ describe "User sign up, log in, sign out" do
 
     before(:each) do
       visit '/'
-      click_link('Sign Up')
+      click_link 'Sign Up'
     end
 
     it 'successfully signs up with a name and password' do
@@ -24,8 +26,8 @@ describe "User sign up, log in, sign out" do
 
   # describe "user login" do
   #   before(:each) do
-  #     visit '/'
-  #     click_link('Log In')
+  #     get '/'
+  #     click_link 'Log In'
   #   end
   #
   #   it 'successfully logs in with a name and password' do
@@ -49,8 +51,8 @@ describe "User sign up, log in, sign out" do
   #
   # describe "user log out" do
   #   it 'successfully logs out and redirects to the homepage' do
-  #     visit '/'
-  #     click_link('Log In')
+  #     get '/'
+  #     click_link 'Log In'
   #     fill_in("name", :with => valid_user.name)
   #     fill_in("password", :with => valid_user.password)
   #     click_button('Log In')

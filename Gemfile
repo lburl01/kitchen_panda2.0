@@ -18,4 +18,5 @@ gem 'tilt', '~> 2.0', '>= 2.0.5'
 group :test do
   gem 'rspec'
   gem 'rack-test', require: 'rack/test'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
 end
