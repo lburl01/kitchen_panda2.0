@@ -15,10 +15,17 @@ html, body {
 
 h2 {
   color: #558a86;
+  padding-bottom: 5px;
 }
 
-h1, h3, h4, h5, h6, p {
+h3 {
+  color: #fff;
+  padding-bottom: 5px;
+}
+
+h1, h4, h5, h6, p {
   color: #0f0a01;
+  padding-bottom: 5px;
 }
 
 .center-text {
@@ -50,4 +57,32 @@ input {
 
 input[type=submit] {
   background-color: #dbb700;
+}
+
+.box {
+  padding: 50px 10px;
+}
+
+#freezer {
+  background-color: #0095a3;
+}
+
+#freezer:hover {
+  background-color: rgba(0, 149, 163, 0.5);
+}
+
+#fridge {
+  background-color: #a5a6a9;
+}
+
+#fridge:hover {
+  background-color: rgba(165, 166, 169, 0.5);;
+}
+
+#pantry {
+  background-color: #fe9f97;
+}
+
+#pantry:hover {
+  background-color: rgba(254, 159, 151, 0.5);;
 }

@@ -1,5 +1,21 @@
-div class="col-md-6 col-md-offset-3"
-  div.center-text
-    h4 howdy, #{@user.name}!
-    br 
-    p: a href="/sessions/logout" Log Out
+div.row
+  div class="col-md-8 col-md-offset-2"
+    div.center-text
+      h4 howdy, #{@user.name}!
+      br
+      p: a href="/sessions/logout" Log Out
+      br
+      h1 Let's check out what's in your kitchen:
+
+div.row
+  div class="col-md-4"
+    div.box#freezer
+      h3.center-text freezer
+
+  div class="col-md-4"
+    div.box#fridge
+      h3.center-text fridge
+
+  div class="col-md-4"
+    div.box#pantry
+      h3.center-text pantry
