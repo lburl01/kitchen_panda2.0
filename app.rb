@@ -41,7 +41,11 @@ get '/registrations/signup' do
 end
 
 get '/sessions/login' do
-  slim :'sesssion/login'
+  slim :'sessions/login'
+end
+
+get '/sessions/logout' do
+  session.clear
 end
 
 get '/users/home' do

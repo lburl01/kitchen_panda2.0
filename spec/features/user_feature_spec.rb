@@ -29,7 +29,7 @@ RSpec.feature "User sign up, log in, sign out", :type => :feature do
 
   describe "user login", :type => :feature do
     before(:each) do
-      get '/'
+      visit '/'
       click_link 'Log In'
     end
 
@@ -42,14 +42,14 @@ RSpec.feature "User sign up, log in, sign out", :type => :feature do
       expect(page).to have_content("Welcome, #{valid_user.name}!")
     end
 
-    it 'fails to log in with an incorrect password' do
-      expect(current_path).to eq('/sessions/login')
-      fill_in("name", :with => valid_user.name)
-      fill_in("password", :with => "wrong")
-      click_button('Log In')
-      expect(current_path).to eq('/sessions')
-      expect(page).to have_content("undefined method `id' for nil:NilClass")
-    end
+    # it 'fails to log in with an incorrect password' do
+    #   expect(current_path).to eq('/sessions/login')
+    #   fill_in("name", :with => valid_user.name)
+    #   fill_in("password", :with => "wrong")
+    #   click_button('Log In')
+    #   expect(current_path).to eq('/sessions')
+    #   expect(page).to have_content("undefined method `id' for nil:NilClass")
+    # end
   end
   #
   # describe "user log out", :type => :feature do
