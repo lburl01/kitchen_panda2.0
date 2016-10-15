@@ -50,6 +50,21 @@ get '/users/home' do
   slim :'/users/home'
 end
 
+get '/users/pantry' do
+  @user = User.find(session[:id])
+  slim :'/users/pantry'
+end
+
+get '/users/freezer' do
+  @user = User.find(session[:id])
+  slim :'/users/freezer'
+end
+
+get '/users/fridge' do
+  @user = User.find(session[:id])
+  slim :'/users/fridge'
+end
+
 post '/registrations' do
   @user = User.new(name: params[:name], password: params[:password])
   @user.save if @user.valid?
