@@ -79,7 +79,7 @@ input[type=submit], .btn, .btn:hover {
 #freezer-list {
   padding: 5px 10px;
   margin: 10px;
-  color: #0095a3;
+  background-color: #0095a3;
   border-radius: 5px;
   font-weight: bolder;
   color: #fff;
