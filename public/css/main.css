@@ -61,8 +61,11 @@ input {
   border: 2px solid #eaded0;
 }
 
-input[type=submit] {
+input[type=submit], .btn, .btn:hover {
   background-color: #dbb700;
+  border-radius: 0px;
+  border: none;
+  padding: 5px 10px;
 }
 
 .box {
@@ -123,8 +126,16 @@ input[type=submit] {
   background-color: rgba(254, 159, 151, 0.5);;
 }
 
-input:focus {
+input:focus, .btn:focus {
   outline: none;
   border: 2px solid #fbae17;
   box-shadow: 0 0 5px rgba(251, 174, 23, 1);
+}
+
+label {
+  margin: 10px;
+}
+
+#add-item-toggle {
+  display: none;
 }

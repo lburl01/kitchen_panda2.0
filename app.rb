@@ -87,3 +87,11 @@ post '/sessions' do
   content_type :json
   return @user.to_json
 end
+
+post '/users/home' do
+  @item = Item.new(user_id: session[:id], location_id: params[:location_id], name: params['name'], quantity: params['quantity'])
+  @item.save if @item.valid?
+  status 201
+  content_type :json
+  return @item.to_json
+end

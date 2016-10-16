@@ -8,8 +8,20 @@ div.row
       h1 Let's check out what's in your kitchen:
       form action="/users/search" method="GET"
         input#search type="text" placeholder="search" name="search"
-          input#search_btn type="submit" value="Search"
-      br 
+          input#search-btn type="submit" value="Search"
+          button#toggle-add type="button" class="btn btn-default" Toggle Add
+          div#add-item-toggle
+            input id="itemName" type="text" placeholder="item name" name="name"
+              input#quantity type="number" placeholder="quantity" name="quantity"
+                label
+                  input type="radio" name="location" value="1"   freezer
+                  label
+                    input type="radio" name="location" value="2"   fridge
+                    label
+                      input type="radio" name="location" value="3"   pantry
+                    button#add-item type="button" class="btn btn-default" value="Add"
+                      | Add
+      br
 
 div.row
   div class="col-md-4"
