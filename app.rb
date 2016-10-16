@@ -66,7 +66,7 @@ get '/users/fridge' do
 end
 
 get '/users/search' do
-  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where("items.name like (?)", "%#{params['search']}%").all
+  @items = Item.select("items.name, quantity, location_id, locations.name as location_name").joins("INNER JOIN users on items.user_id = users.id").joins("INNER JOIN locations on items.location_id = locations.id").where(user_id: session[:id]).where("items.name like (?)", "%#{params['search']}%").all
   slim :'users/search'
 end
 
