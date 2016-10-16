@@ -53,6 +53,7 @@ input {
   margin: 5px;
   border: none;
   padding: 5px 10px;
+  border: 2px solid #eaded0;
 }
 
 input[type=submit] {
@@ -85,4 +86,10 @@ input[type=submit] {
 
 #pantry:hover {
   background-color: rgba(254, 159, 151, 0.5);;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #fbae17;
+  box-shadow: 0 0 5px rgba(251, 174, 23, 1);
 }
