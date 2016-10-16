@@ -6,6 +6,10 @@ div.row
       p: a href="/sessions/logout" Log Out
       br
       h1 Let's check out what's in your kitchen:
+      form action="/users/search" method="GET"
+        input#search type="text" placeholder="search" name="search"
+          input#search_btn type="submit" value="Search"
+      br 
 
 div.row
   div class="col-md-4"

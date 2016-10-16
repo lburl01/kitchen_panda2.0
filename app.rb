@@ -65,6 +65,11 @@ get '/users/fridge' do
   slim :'/users/fridge'
 end
 
+get '/users/search' do
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where("items.name like (?)", "%#{params['search']}%").all
+  slim :'users/search'
+end
+
 post '/registrations' do
   @user = User.new(name: params[:name], password: params[:password])
   @user.save if @user.valid?
