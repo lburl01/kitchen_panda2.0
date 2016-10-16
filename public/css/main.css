@@ -64,7 +64,7 @@ input {
 input[type=submit], .btn, .btn:hover {
   background-color: #dbb700;
   border-radius: 0px;
-  border: none;
+  border: 2px solid #eaded0;
   padding: 5px 10px;
 }
 
@@ -126,7 +126,7 @@ input[type=submit], .btn, .btn:hover {
   background-color: rgba(254, 159, 151, 0.5);;
 }
 
-input:focus, .btn:focus {
+input:focus {
   outline: none;
   border: 2px solid #fbae17;
   box-shadow: 0 0 5px rgba(251, 174, 23, 1);

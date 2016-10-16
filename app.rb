@@ -50,23 +50,28 @@ get '/users/home' do
   slim :'/users/home'
 end
 
+get '/items' do
+  content_type :json
+  @items = Item.all.to_json
+end
+
 get '/users/pantry' do
-  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 3).all
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 3).where(is_deleted: false).all
   slim :'/users/pantry'
 end
 
 get '/users/freezer' do
-  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 1).all
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 1).where(is_deleted: false).all
   slim :'/users/freezer'
 end
 
 get '/users/fridge' do
-  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 2).all
+  @items = Item.select(:name, :quantity, :location_id).joins("INNER JOIN users on items.user_id = users.id").where(user_id: session[:id]).where(location_id: 2).where(is_deleted: false).all
   slim :'/users/fridge'
 end
 
 get '/users/search' do
-  @items = Item.select("items.name, quantity, location_id, locations.name as location_name").joins("INNER JOIN users on items.user_id = users.id").joins("INNER JOIN locations on items.location_id = locations.id").where(user_id: session[:id]).where("items.name like (?)", "%#{params['search']}%").all
+  @items = Item.select("items.name, quantity, location_id, locations.name as location_name").joins("INNER JOIN users on items.user_id = users.id").joins("INNER JOIN locations on items.location_id = locations.id").where(user_id: session[:id]).where("items.name like (?)", "%#{params['search']}%").where(is_deleted: false).all
   slim :'users/search'
 end
 
@@ -94,4 +99,11 @@ post '/users/home' do
   status 201
   content_type :json
   return @item.to_json
+end
+
+patch '/items/remove/:name' do
+  @item = Item.where(name: :name)
+  unless @item.nil?
+    @item.update(is_deleted: true)
+  end
 end

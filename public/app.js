@@ -1,21 +1,18 @@
 
 $(function() {
   $('#freezer').on('click', function() {
-    console.log('hi mom');
     window.location.href = "/users/freezer";
   })
 })
 
 $(function() {
   $('#fridge').on('click', function() {
-    console.log('hi mom');
     window.location.href = "/users/fridge";
   })
 })
 
 $(function() {
   $('#pantry').on('click', function() {
-    console.log('hi mom');
     window.location.href = "/users/pantry";
   })
 })
@@ -43,9 +40,27 @@ $(function() {
         name: name,
         quantity: quantity
       }
-    }).done(function(response) {
-      console.log(this);
-      console.log(response);
-    });
+    })
   })
 })
+
+$(function removeItem() {
+  console.log();
+})
+
+// $(function() {
+//   (function(item) {
+//       console.log(item.name);
+//       var remove = $('#remove-' + item.name)
+//       $(remove).on('click', function() {
+//         console.log('hi mom');
+//         $("p").remove(":contains(item.name)");
+//
+//         // $.ajax({
+//         //   method: 'PATCH',
+//         //   url: '/items/remove' + item.name
+//         // })
+//       })
+//     })
+//   })
+// })

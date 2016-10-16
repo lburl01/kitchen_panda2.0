@@ -22,4 +22,5 @@ class Item < ActiveRecord::Base
   def new
     @item = Item.new
   end
+
 end
