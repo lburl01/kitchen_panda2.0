@@ -1,11 +1,11 @@
 div class="col-md-6 col-md-offset-3"
   br
   p.center-text: a href="/users/home" Go Home
-  h4 align="center" What's in your freezer:
+  br
+  h2 align="center" What's in your freezer:
   div.center-text
     - if @items.length < 1
       h4 Looks like you haven't added any foods here yet!
 
-  ul
     - @items.each do |item|
-      li #{item.name}
+      p #{item.name} • quantity: #{item.quantity}

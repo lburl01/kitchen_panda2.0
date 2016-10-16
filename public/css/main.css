@@ -28,7 +28,7 @@ h1, h4, h5, h6 {
   padding-bottom: 5px;
 }
 
-p {
+p, li {
   font-size: 1.25em;
   color: #0f0a01;
 }
@@ -138,4 +138,20 @@ label {
 
 #add-item-toggle {
   display: none;
+}
+
+.crud {
+  background-color: #eaded0;
+  color: #558a86;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+.crud:hover {
+  font-weight: bolder;
+  background-color: #eaded0;
+  color: #558a86;
+  border-bottom: 2px solid #558a86;
+  border-radius: 0px;
+  margin-left: 5px;
 }
