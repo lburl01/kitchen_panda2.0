@@ -106,4 +106,14 @@ put '/items/remove/:id' do |id|
   unless @item.nil?
     @item.update(is_deleted: true)
   end
+  status 200
+end
+
+put '/users/home/quantity/:id' do |id|
+  @item = Item.find_by_id(id)
+  unless @item.nil?
+    @item.quantity = params[:quantity]
+    @item.save
+  end
+  status 200
 end

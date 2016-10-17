@@ -17,13 +17,13 @@ $(function() {
   })
 })
 
-$(function() {
+$(function toggleAdd() {
   $("#toggle-add").on('click', function() {
      $("#add-item-toggle").toggle();
   })
 })
 
-$(function() {
+$(function addForm() {
   $("#add-item").on('click', function createItem() {
     var name = $('#itemName').val();
     var quantity = $('#quantity').val();
@@ -66,6 +66,23 @@ $(function() {
             url: '/items/remove/' + item.id
           })
         })
+
+        $edit.on('click', function() {
+          $("#add-item-toggle").toggle();
+          $("#update-quantity").on('click', function updateQuantity() {
+            var quantity = $('#quantity').val();
+
+            $('#quantity').val('');
+
+            return $.ajax({
+              method: 'PUT',
+              url: '/users/home/quantity/' + item.id,
+              data: {
+                quantity: quantity
+              }
+            })
+          })
+        })
       }
       })
     })
@@ -93,6 +110,24 @@ $(function() {
             url: '/items/remove/' + item.id
           })
         })
+
+        $edit.on('click', function() {
+          $("#add-item-toggle").toggle();
+          console.log(item.id);
+          $("#update-quantity").on('click', function updateQuantity() {
+            var quantity = $('#quantity').val();
+
+            $('#quantity').val('');
+
+            return $.ajax({
+              method: 'PUT',
+              url: '/users/home/quantity/' + item.id,
+              data: {
+                quantity: quantity
+              }
+            })
+          })
+        })
       }
       })
     })
@@ -118,6 +153,23 @@ $(function() {
           $.ajax({
             method: 'PUT',
             url: '/items/remove/' + item.id
+          })
+        })
+
+        $edit.on('click', function() {
+          $("#add-item-toggle").toggle();
+          $("#update-quantity").on('click', function updateQuantity() {
+            var quantity = $('#quantity').val();
+
+            $('#quantity').val('');
+
+            return $.ajax({
+              method: 'PUT',
+              url: '/users/home/quantity/' + item.id,
+              data: {
+                quantity: quantity
+              }
+            })
           })
         })
       }
