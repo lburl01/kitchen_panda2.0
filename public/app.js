@@ -44,10 +44,6 @@ $(function() {
   })
 })
 
-$(function removeItem() {
-  console.log();
-})
-
 // $(function() {
 //   (function(item) {
 //       console.log(item.name);

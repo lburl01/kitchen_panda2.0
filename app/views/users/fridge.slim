@@ -7,8 +7,8 @@ div class="col-md-6 col-md-offset-3"
     - if @items.length < 1
       h4 Looks like you haven't added any foods here yet!
 
-      - @items.each do |item|
-        p
+    - @items.each do |item|
+      p id="#{item.name}"
         | #{item.name} • quantity: #{item.quantity}
-        a.crud href="/" Edit
-        a.crud id="delete" href="/" X
+        button class="btn btn-default crud" Edit
+        button class="btn btn-default crud" onclick="($('p').remove())" X
