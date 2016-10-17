@@ -11,4 +11,4 @@ div class="col-md-6 col-md-offset-3"
       p id="#{item.name}"
         | #{item.name} • quantity: #{item.quantity}
         button class="btn btn-default crud" Edit
-        button class="btn btn-default crud" onclick="($('p').remove())" X
+        button class="btn btn-default crud" onclick="($('p').remove(this))" X

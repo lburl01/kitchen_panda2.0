@@ -52,7 +52,7 @@ end
 
 get '/items' do
   content_type :json
-  @items = Item.all.to_json
+  @items = Item.where(user_id: session[:id]).all.to_json
 end
 
 get '/users/pantry' do
@@ -101,8 +101,8 @@ post '/users/home' do
   return @item.to_json
 end
 
-patch '/items/remove/:name' do
-  @item = Item.where(name: :name)
+put '/items/remove/:id' do |id|
+  @item = Item.find_by_id(id)
   unless @item.nil?
     @item.update(is_deleted: true)
   end
